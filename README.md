@@ -1,8 +1,28 @@
-# 🚀 opencode-agents
+# 🚀 everything-opencode
 
-**33 agents + 69 skills prontos para o OpenCode** — uma arquitetura completa de agentes de IA para desenvolvimento de software, com discovery pipeline, simbiose com superpowers, design systems e suporte a IA via 9Router (FREE).
+**33 AI agents + 69 skills for OpenCode** — multi-agent architecture for AI-assisted development.
 
-> Alternativa open-source e local-first para times que querem agentes especializados, organizados por camada e domínio, sem depender de plataformas fechadas.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Agents](https://img.shields.io/badge/agents-33-green.svg)](#-arquitetura-de-agentes)
+[![Skills](https://img.shields.io/badge/skills-69-orange.svg)](#-skills)
+[![Install](https://img.shields.io/badge/install-one%20line-brightgreen.svg)](#-instalação)
+[![OpenCode](https://img.shields.io/badge/OpenCode-ready-blueviolet.svg)](https://opencode.ai)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Tokenizaa/everything-opencode/pulls)
+
+> **The open-source alternative to everything-claude-code, built for OpenCode.**  
+> Um time de 33 agentes especializados + 69 skills que trabalham juntos: backend, banco, frontend, testes, segurança, marketing, Cloudflare, design e IA FREE — com discovery pipeline, handoff silencioso e disciplina de processo (TDD + Karpathy).
+
+## ✨ Por que everything-opencode?
+
+| Problema comum | Solução aqui |
+|---|---|
+| Agents soltos, sem organização | **33 agents organizados por camada e domínio** (governança → técnicos → orquestradores) |
+| Skills desconectadas | **69 skills conectadas** aos agents via `skill tool` obrigatório |
+| Cada projeto precisa configurar tudo | **1 comando** de instalação + topologia automática |
+| IA cara / dependência de APIs pagas | **9Router FREE** (NVIDIA + combo) para chat, imagem, TTS, STT, embeddings |
+| Agents fazem código ruim (assumem, complicam) | **Karpathy + Superpowers** (4 regras de disciplina + HARD-GATEs de processo) |
+| Design caro/fechado | **153 design-systems** open-source (Apple, Airbnb, Linear...) |
+
 
 ---
 
@@ -65,7 +85,7 @@ O `opencode-agents` transforma o OpenCode em um **time de agentes especializados
 
 ```bash
 # 1. Clone
-git clone https://github.com/Tokenizaa/opencode-agents.git
+git clone https://github.com/Tokenizaa/everything-opencode.git
 cd opencode-agents
 
 # 2. Instale agents + skills + AGENTS.md
@@ -80,7 +100,7 @@ bash install.sh --design
 ### Método 2 — Instalação direta via curl
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Tokenizaa/opencode-agents/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Tokenizaa/everything-opencode/main/install.sh | bash
 ```
 
 ### Método 3 — Manual
