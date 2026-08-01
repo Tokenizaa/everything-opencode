@@ -97,6 +97,13 @@
 | `@9router` | all | 8 skills (chat, imagem, TTS, STT, embeddings, web) |
 | `@design` | all | 9 skills + 153 design-systems |
 
+
+### Auditoria
+
+| Agente | Modo | Responsabilidade |
+|--------|------|-----------------|
+| `@architecture-test` | subagent | Teste HARD da arquitetura — valida agents/skills/handoff, gera relatório de performance e erros |
+
 ### IA FREE
 
 | Agente | Modo | Responsabilidade |

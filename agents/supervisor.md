@@ -103,3 +103,12 @@ Quando o usuário perguntar **"qual sua função"**, **"o que você faz"**,
 3. Não inventar funções — extrair TUDO do conteúdo real da skill carregada
 
 Este comando SEMPRE carrega a skill antes de responder (nunca responda de memória).
+
+## Comando: "teste hard" / "auditoria da arquitetura" / "health check"
+
+Quando o usuário pedir **"teste hard"**, **"auditoria da arquitetura"**,
+**"health check dos agents"** (ou similar):
+
+1. Invoque a skill `agent-architecture-test` (ou acione @architecture-test via task)
+2. Execute o teste completo: auditoria estrutural → fluxo real → relatório
+3. Entregue o relatório final (performance + erros + health check 0-100)
