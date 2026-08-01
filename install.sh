@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-# opencode-agents — Instalador
+# everything-opencode — Instalador
 # Instala agents, skills e configuração genérica do OpenCode.
 # Uso: bash install.sh [--design] [--force]
 #   --design  baixa a biblioteca de design (153 marcas, 81MB) — opcional
@@ -41,7 +41,7 @@ for arg in "$@"; do
 done
 
 echo "=============================================="
-echo "  opencode-agents — Instalador"
+echo "  everything-opencode — Instalador"
 echo "  Destino: $CONFIG_DIR"
 echo "=============================================="
 echo ""

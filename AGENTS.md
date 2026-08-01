@@ -1,4 +1,4 @@
-# Agent Topology — opencode-agents
+# Agent Topology — everything-opencode
 
 ## Agentes de Governança (Tab + @)
 
