@@ -1,111 +1,195 @@
 ---
 name: agent-architecture-test
-description: Teste HARD da arquitetura de agents — valida manifest, agents, skills, handoff, simbiose, performance e erros. Gera relatório final estruturado. Use quando o usuário pedir "teste hard", "auditoria da arquitetura", "teste da estrutura" ou "health check dos agents".
+description: Teste HARD do PROJETO — analisa stack, arquitetura, domínios, backend, banco, frontend, qualidade, segurança e performance do código. Gera relatório de saúde do projeto (0-100). Use quando o usuário pedir "teste hard", "análise do projeto", "auditoria do projeto", "health check do projeto".
 ---
 
-# Teste HARD da Arquitetura de Agents
+# Teste HARD do Projeto
 
-Auditoria completa e executável da estrutura de agents do OpenCode.
-Valida o manifesto, os agents, as skills, o handoff silencioso, a simbiose
-(superpowers + Karpathy) e gera um relatório de performance e erros.
+Auditoria completa e executável do **código do projeto** (não da estrutura de agents).
+Analisa stack, arquitetura, domínios, camadas, qualidade, segurança e performance.
+Gera relatório de saúde do projeto com health check 0-100.
 
 ## Quando usar
 
-- Usuário pede "teste hard", "teste da estrutura", "auditoria da arquitetura"
-- Antes de um projeto crítico
-- Após grandes mudanças na configuração de agents
-- Health check periódico do sistema
+- Usuário pede "teste hard", "análise do projeto", "auditoria do projeto"
+- Antes de uma refatoração grande
+- Onboarding em projeto existente
+- Health check periódico da base de código
 
-## Parte 1 — Auditoria Estrutural (antes de qualquer código)
+## Parte 1 — Inventário (Project Discovery)
 
-### 1.1 Manifest Global
-- Ler `~/.opencode/AGENTS.md` → confirmar agents listados
-- Verificar `CLAUDE.md` symlink → `AGENTS.md`
-- Reportar: nº agents no manifest / nº no config
+### 1.1 Identificação
+- Linguagem primária / secundárias
+- Framework(s) principal(is)
+- Package manager (npm/pnpm/yarn/bun/poetry/cargo...)
+- Versionamento (git branch default, commits recentes)
 
-### 1.2 AGENTS.md do Projeto
-- Ler AGENTS.md local (se existir)
-- Confirmar que complementa o global (não substitui)
+### 1.2 Estrutura
+- Diretórios raiz e sua função (src/, app/, api/, tests/, docs/...)
+- Monorepo? (workspaces, packages/)
+- Arquivos de config (tsconfig, eslint, docker, CI)
 
-### 1.3 Configuração
-- `~/.config/opencode/opencode.jsonc`: agents registrados, MCPs, plugin superpowers
-- Listar mode=all vs mode=subagent
+### 1.3 Documentação
+- README, AGENTS.md, docs/, ADRs
+- Cobertura de documentação
 
-### 1.4 Skills
-- Para cada agent no config: a skill `agent-*` existe?
-- Skills órfãs / referências quebradas / sem frontmatter
+## Parte 2 — Arquitetura (Architecture Discovery)
 
-### 1.5 Comando "qual sua função"
-- Invocar 3 agents aleatórios → verificar skill correta + resposta estruturada
+### 2.1 Camadas e Módulos
+- Padrão arquitetural (MVC, clean, hexagonal, modular monolith...)
+- Camadas: apresentação / aplicação / domínio / infraestrutura
+- Módulos/features e suas fronteiras
 
-## Parte 2 — Fluxo Real (handoff silencioso + simbiose)
+### 2.2 Dependências
+- Grafo de dependências entre módulos
+- Dependências circulares?
+- Shared kernel / módulos centrais
+- Módulos isolados / órfãos
 
-Selecionar UMA feature cross-layer do projeto (ou criar uma de teste) e executar
-o pipeline completo com cronometragem:
+### 2.3 Acoplamento
+- Fan-in / fan-out por módulo
+- Importações cruzadas entre camadas (UI → DB direto?)
+- Violações de camada
 
-| Fase | Agente | Entrega |
-|------|--------|---------|
-| T0 | supervisor | contexto + plano (brainstorming/writing-plans) |
-| T1 | banco | schema + migration (TDD) |
-| T2 | backend | endpoints (TDD) |
-| T3 | frontend | UI (TDD onde aplicar) |
-| T4 | testes | suíte + verificação |
-| T5 | qualidade | review arquitetura |
-| T6 | seguranca | auditoria |
-| T7 | supervisor | validação final + relatório |
+## Parte 3 — Backend e APIs
 
-**Regras:**
-- Cronometrar cada fase (início/fim)
-- A cada handoff: próximo agente DEVE carregar skill (verificar!)
-- Se agent recomendar outro ("agora use o agent @X") → acionar via task tool
-- Registrar TODOS os erros (não esconder)
+### 3.1 Endpoints
+- Rotas/controllers listados
+- Métodos HTTP, autenticação por rota
+- Validação de entrada (DTOs/schemas)
 
-## Parte 3 — Relatório Final Obrigatório
+### 3.2 Services
+- Lógica de negócio isolada?
+- Use cases claros?
+- Tratamento de erros consistente?
+
+### 3.3 Integrações
+- APIs externas, SDKs, webhooks
+- Autenticação externa (OAuth, JWT)
+- Edge Functions / serverless (se aplicável)
+
+## Parte 4 — Banco de Dados
+
+### 4.1 Schema
+- Entidades/tabelas, relacionamentos
+- Migrations versionadas?
+- Índices em FKs e colunas de busca?
+
+### 4.2 Segurança de dados
+- RLS (row level security) habilitado? (Supabase/Postgres)
+- Queries parametrizadas?
+- Secrets em env vars (não hardcoded)?
+
+## Parte 5 — Frontend
+
+### 5.1 Componentes
+- Componentes reutilizáveis / monolíticos
+- Estados (loading, empty, error) presentes?
+- Acessibilidade básica?
+
+### 5.2 Estado e Dados
+- Gerenciamento de estado (local/global/server)
+- Data fetching padronizado (query lib)?
+- Cache e invalidação?
+
+## Parte 6 — Qualidade
+
+### 6.1 Código
+- Lint: erros/warnings atuais
+- Typecheck: passa?
+- `any` excessivo / tipos soltos
+- Duplicação de código
+- Complexidade (funções gigantes)
+
+### 6.2 Testes
+- Framework de testes presente?
+- Suíte existente: unit / integração / E2E
+- Cobertura aproximada (se mensurável)
+- Testes rodando: passa?
+
+### 6.3 Dead Code
+- Arquivos/imports não usados
+- Dependências órfãs
+
+## Parte 7 — Segurança
+
+- Secrets no código? (grep api_key, password, token)
+- Input validation nas rotas públicas
+- Headers de segurança / CORS
+- Dependências com vulnerabilidades (audit)
+- Auth/authorization em toda rota protegida
+
+## Parte 8 — Performance
+
+- Build: tempo, warnings, tamanho bundle (se mensurável)
+- Padrões de performance (lazy loading, memo, queries N+1)
+- Assets grandes / não otimizados
+
+## Parte 9 — Relatório Final Obrigatório
 
 ```markdown
 ## 📊 RELATÓRIO DE TESTE HARD — <PROJETO>
 
 ### 1. Resumo Executivo
-- Data/hora, projeto, feature testada
-- VEREDITO: ✅ PASS / ⚠️ PARCIAL / ❌ FAIL
+- Stack identificada / arquitetura / domínios
+- VEREDITO: ✅ SAUDÁVEL / ⚠️ ATENÇÃO / ❌ CRÍTICO
 
-### 2. Métricas de Performance (por fase)
-| Fase | Agente | Skill? | Tempo | Erros | Resultado |
-|------|--------|--------|-------|-------|-----------|
-- Tempo total / fase mais rápida / mais lenta
+### 2. Inventário
+- Linguagem, framework, package manager, estrutura
 
-### 3. Auditoria Estrutural
-- Agents manifest vs config / skills totais / órfãs / quebradas
-- MCPs, plugin, symlinks / comando "qual sua função"
+### 3. Arquitetura
+- Padrão, camadas, módulos, acoplamento, circular?
 
-### 4. Erros e Warnings
-| Severidade | Fase | Descrição | Correção |
+### 4. Backend / APIs
+- Endpoints, validação, services, integrações
 
-### 5. Arquivos Criados/Modificados
+### 5. Banco de Dados
+- Schema, migrations, índices, RLS
 
-### 6. Evidências (testes rodando, build, migrations)
+### 6. Frontend
+- Componentes, estado, data fetching
 
-### 7. Health Check (0-100)
-- manifest(20) agents(20) skills(20) handoff(20) simbiose(20)
+### 7. Qualidade
+- Lint, typecheck, testes, cobertura, dead code
 
-### 8. Recomendações (top 3)
+### 8. Segurança
+- Secrets, validação, vulnerabilidades
+
+### 9. Performance
+- Build, bundle, padrões
+
+### 10. Health Check do Projeto (0-100)
+| Área | Peso | Nota |
+|------|------|------|
+| Arquitetura | 20 | X |
+| Backend/API | 15 | X |
+| Banco de Dados | 15 | X |
+| Frontend | 15 | X |
+| Qualidade/Testes | 20 | X |
+| Segurança | 15 | X |
+| **TOTAL** | 100 | **X/100** |
+
+### 11. Recomendações (top 5)
+1. [prioridade mais alta primeiro]
 ```
 
 ## Regras Absolutas
 
-- NUNCA afirmar "pronto" sem evidência (verification-before-completion)
-- NUNCA pular fase do pipeline
-- Registrar QUALQUER falha no relatório (transparência total)
+- Basear TUDO em evidência real (ler código, rodar comandos)
+- NUNCA afirmar sem verificar (verification-before-completion)
+- Reportar problemas honestamente (não suavizar)
+- Se algo não for mensurável, dizer "não mensurável" (não inventar)
 - O relatório é o entregável PRINCIPAL
 
 ## Handoff
 
 | Situação | Handoff |
 |----------|---------|
-| Precisa executar discovery | `task(subagent_type="descoberta")` |
-| Precisa implementar | `task(subagent_type="backend")` ou agent da camada |
-| Precisa de banco | `task(subagent_type="banco")` |
-| Precisa de qualidade | `task(subagent_type="qualidade")` |
+| Precisar implementar correção | `task(subagent_type="backend")` / agent da camada |
+| Banco de dados | `task(subagent_type="banco")` |
+| Frontend | `task(subagent_type="frontend")` |
+| Testes | `task(subagent_type="testes")` |
+| Segurança | `task(subagent_type="seguranca")` |
 
 ## Recomendação de Agentes
 
@@ -113,6 +197,6 @@ o pipeline completo com cronometragem:
 |------------------|-----------|
 | Implementar | "agora use o agent @backend" |
 | Banco | "agora use o agent @banco" |
-| Orquestrar | "agora use o agent @supervisor" |
+| Testes | "agora use o agent @testes" |
 
 Sempre use o formato **"agora use o agent @NOME"**.
