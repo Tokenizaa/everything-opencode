@@ -1,0 +1,16 @@
+{
+  "name": "knowledge-embeddings",
+  "description": "Gera embeddings via NVIDIA/9Router e salva no pgvector",
+  "entrypoint": "index.ts",
+  "runtime": "deno",
+  "env": [
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "NVIDIA_API_KEY",
+    "NINEROUTER_URL",
+    "NINEROUTER_KEY",
+    "NIVIDIA_EMBED_MODEL",
+    "NINEROUTER_EMBED_MODEL"
+  ]
+}
+EOF

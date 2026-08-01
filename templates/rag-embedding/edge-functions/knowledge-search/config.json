@@ -1,0 +1,13 @@
+{
+  "name": "knowledge-search",
+  "description": "Busca semântica/híbrida na base de conhecimento via pgvector",
+  "entrypoint": "index.ts",
+  "runtime": "deno",
+  "env": [
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "NINEROUTER_URL",
+    "NINEROUTER_KEY"
+  ]
+}
+EOF

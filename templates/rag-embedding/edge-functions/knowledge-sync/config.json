@@ -1,0 +1,16 @@
+{
+  "name": "knowledge-sync",
+  "description": "Sincronização de base de conhecimento — sincroniza tabelas de domínio para knowledge_chunks, gera embeddings, mantém pgvector atualizado",
+  "entrypoint": "index.ts",
+  "runtime": "deno",
+  "env": [
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "NVIDIA_API_KEY",
+    "NINEROUTER_URL",
+    "NINEROUTER_KEY",
+    "NIVIDIA_EMBED_MODEL",
+    "NINEROUTER_EMBED_MODEL"
+  ]
+}
+EOF
