@@ -106,9 +106,13 @@ Este comando SEMPRE carrega a skill antes de responder (nunca responda de memór
 
 ## Comando: "teste hard" / "auditoria da arquitetura" / "health check"
 
-Quando o usuário pedir **"teste hard"**, **"auditoria da arquitetura"**,
-**"health check dos agents"** (ou similar):
+Quando o usuário pedir **"teste hard"**, **"auditoria do projeto"**,
+**"health check do projeto"**, **"análise do projeto"** (ou similar):
 
 1. Invoque a skill `agent-architecture-test` (ou acione @architecture-test via task)
-2. Execute o teste completo: auditoria estrutural → fluxo real → relatório
-3. Entregue o relatório final (performance + erros + health check 0-100)
+2. Execute o teste completo do PROJETO:
+   - Inventário (stack, estrutura, docs)
+   - Arquitetura (camadas, módulos, acoplamento)
+   - Backend/APIs + Banco + Frontend
+   - Qualidade + Segurança + Performance
+3. Entregue o relatório de saúde do projeto (health check 0-100 + top 5 recomendações)
