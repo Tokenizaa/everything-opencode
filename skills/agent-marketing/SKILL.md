@@ -65,3 +65,11 @@ certo seja aplicado.
 | IA (geração de conteúdo via LLM) | "agora use o agent @9router" |
 
 Sempre use o formato **"agora use o agent @NOME"**.
+
+### Firecrawl (pesquisa profunda)
+
+- `firecrawl-deep-research` — pesquisa profunda com relatório citado
+- `firecrawl-market-research` — pesquisa de mercado
+- `firecrawl-competitive-intel` — inteligência competitiva
+- `firecrawl-lead-research` — pesquisa de leads
+- `firecrawl-seo-audit` — auditoria SEO

@@ -135,6 +135,9 @@ acionar o agente correto com um @-mention.
 ## Skills Operacionais Relacionadas
 
 - `concise-planning` — planejamento conciso e acionável
+- `firecrawl-deep-research` — pesquisa profunda com relatório citado (Firecrawl)
+- `firecrawl-market-research` — pesquisa de mercado
+- `firecrawl-competitive-intel` — inteligência competitiva
 
 ## Git Workflow (aplicar em todos os agentes)
 

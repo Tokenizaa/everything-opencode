@@ -116,3 +116,12 @@ Quando o usuário pedir **"teste hard"**, **"auditoria do projeto"**,
    - Backend/APIs + Banco + Frontend
    - Qualidade + Segurança + Performance
 3. Entregue o relatório de saúde do projeto (health check 0-100 + top 5 recomendações)
+
+## Comando: "pesquisa profunda" / "deep research" / "research"
+
+Quando o usuário pedir **pesquisa profunda**, **relatório de pesquisa**, **deep research**
+ou precisar de síntese rigorosa de um tópico complexo:
+
+1. Carregue a skill `firecrawl-deep-research` (ou recomende @marketing)
+2. Para pesquisa de mercado/competidores: recomende "agora use o agent @marketing"
+3. Entregue o relatório citado (executive summary + findings + sources)
