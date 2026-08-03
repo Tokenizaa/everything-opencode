@@ -105,6 +105,8 @@
 | `@architecture-test` | subagent | Teste HARD da arquitetura — valida agents/skills/handoff, gera relatório de performance e erros |
 
 
+
+| `@nvidia` | all | NVIDIA — RAG Blueprint, ASR, Nemotron, AI-Q (build.nvidia.com) |
 ### Coleta de Dados
 
 | Agente | Modo | Responsabilidade |
