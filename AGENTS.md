@@ -104,6 +104,14 @@
 |--------|------|-----------------|
 | `@architecture-test` | subagent | Teste HARD da arquitetura — valida agents/skills/handoff, gera relatório de performance e erros |
 
+
+### Coleta de Dados
+
+| Agente | Modo | Responsabilidade |
+|--------|------|-----------------|
+| `@scraper` | all | Scraping web — pesquisa profunda, mercado, concorrentes, leads, SEO (Firecrawl) |
+| `@evolution-api` | all | WhatsApp via Evolution API — instâncias, mensagens, webhooks, chatbot |
+
 ### IA FREE
 
 | Agente | Modo | Responsabilidade |
