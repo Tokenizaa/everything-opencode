@@ -128,6 +128,9 @@ Como orquestrador, você deve recomendar o agente certo para cada tarefa:
 | Tarefa específica de queries | "agora use o agent @banco-queries" |
 | Tarefa específica de componente UI | "agora use o agent @frontend-components" |
 | Tarefa específica de estado | "agora use o agent @frontend-state" |
+| Scraping web, pesquisa de mercado, leads, SEO | "agora use o agent @scraper" |
+| WhatsApp (instâncias, mensagens, webhooks) | "agora use o agent @evolution-api" |
+| Pesquisa profunda com relatório | "agora use o agent @scraper" |
 
 Sempre use o formato **"agora use o agent @NOME"** para que o usuário possa
 acionar o agente correto com um @-mention.
@@ -191,6 +194,9 @@ Regras:
 - O subagente invocado carrega a skill automaticamente (frontmatter obriga)
 - Cada handoff passa contexto: o que já foi feito + o que o próximo deve fazer
 - Retorne o resultado final ao usuário quando o pipeline completar
+
+Para scraping/coleta de dados web: `task(subagent_type="scraper")`
+Para integração WhatsApp: `task(subagent_type="evolution-api")`
 
 ## Disciplina de Código (Karpathy Guidelines)
 

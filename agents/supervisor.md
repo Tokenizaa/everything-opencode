@@ -60,6 +60,8 @@ Você funciona em **qualquer projeto** — novo ou existente. Não implementa c�
 | Build quebrado | "agora use o agent @build-error-resolver" |
 | Dead code / refactor | "agora use o agent @refactor-cleaner" |
 | Domínio específico do projeto | Consulte o AGENTS.md do projeto |
+| Scraping web, pesquisa de mercado, leads, SEO | "agora use o agent @scraper" |
+| WhatsApp (instâncias, mensagens, webhooks) | "agora use o agent @evolution-api" |
 
 ## Passo 4 — Handoff silencioso
 
