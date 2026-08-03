@@ -106,7 +106,9 @@
 
 
 
-| `@nvidia` | all | NVIDIA — RAG Blueprint, ASR, Nemotron, AI-Q (build.nvidia.com) |
+| `@nvidia` | all |
+| `@github` | all | GitHub — issues, PRs, releases, Actions, commits (gh CLI) |
+ NVIDIA — RAG Blueprint, ASR, Nemotron, AI-Q (build.nvidia.com) |
 ### Coleta de Dados
 
 | Agente | Modo | Responsabilidade |
